@@ -1,0 +1,28 @@
+[
+  {
+    "MountId": "56e62dd7-241f-41e9-8c6b-dd4ca4513e62",
+    "AncestorCsetIds": [
+      2
+    ],
+    "SourceCsetId": 17,
+    "DestinationCsetId": 2,
+    "FileConflicts": [
+      {
+        "Path": "/Assets/Scenes/HouseScene.unity",
+        "ItemId": 1170,
+        "ParentItemId": 1126,
+        "BaseRevId": 1037,
+        "SourceRevId": 4720,
+        "DestinationRevId": 1037
+      },
+      {
+        "Path": "/Assets/XR/Settings/OpenXR Package Settings.asset",
+        "ItemId": 1285,
+        "ParentItemId": 1211,
+        "BaseRevId": 1093,
+        "SourceRevId": 4286,
+        "DestinationRevId": 1093
+      }
+    ]
+  }
+]
