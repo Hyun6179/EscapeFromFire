@@ -10,9 +10,6 @@ public class OtherFire : MonoBehaviour
     [SerializeField] private GameObject gassP;
     //[SerializeField] private float growTime = 3f; // 불 붙는 시간
 
-    [Header("Fire Sound")]
-    public AudioSource fireAudio;
-
     //private bool isBurning = false;
 
     void Start()
@@ -23,7 +20,6 @@ public class OtherFire : MonoBehaviour
         fireP.SetActive(false);
         smokeP.SetActive(false);
         gassP.SetActive(false);
-        fireAudio.mute = true;
     }
 
     public void IgniteFire(float growTime)
@@ -40,7 +36,6 @@ public class OtherFire : MonoBehaviour
         fire.enabled = true;
         fireP.SetActive(true);
         gassP.SetActive(true);
-        fireAudio.mute = false;
 
         float elapsed = 0f;
         var main = fireP.GetComponent<ParticleSystem>().main;

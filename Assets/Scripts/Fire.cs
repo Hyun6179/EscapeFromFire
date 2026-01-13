@@ -9,9 +9,6 @@ public class Fire : MonoBehaviour
     public float IncreaseRate = 0.005f;  // 1초당 증가
     public Light fireLight;
 
-    [Header("Fire Sound")]
-    public AudioSource fireAudio;
-
     [Header("Smoke Particle")]
     public ParticleSystem smokeParticle;
     public float maxSmokeLife = 1f;
@@ -19,7 +16,6 @@ public class Fire : MonoBehaviour
     [Header("GassSmoke Particle")]
     public ParticleSystem gassParticle;
     public float maxGassLife = 10f;
-
 
     [Header("Extinguish Settings")]
     public bool isExtinguishing = false;
@@ -60,14 +56,6 @@ public class Fire : MonoBehaviour
             // Smoke는 불이 증가 중이면 정지
             if (smokeParticle.isPlaying)
                 smokeParticle.Stop();
-
-            // Audio 재생, 불이 켜져있으면
-            if (fireAudio != null && !fireAudio.isPlaying)
-                fireAudio.Play();
-
-            // 볼륨 최대치 적용
-            if (fireAudio != null)
-                fireAudio.volume = fireLife / maxFireLife;
         }
         else
         {
@@ -81,22 +69,13 @@ public class Fire : MonoBehaviour
                 // Smoke 재생
                 if (!smokeParticle.isPlaying)
                     smokeParticle.Play();
-
-                // 볼륨 줄이기
-                if (fireAudio != null)
-                    fireAudio.volume = fireLife / maxFireLife;
             }
             else
             {
                 gameObject.SetActive(false);
-
                 // Fire 완전히 꺼지면 Smoke도 정지
                 if (smokeParticle.isPlaying)
                     smokeParticle.Stop();
-
-                // Audio도 멈추기
-                if (fireAudio != null && fireAudio.isPlaying)
-                    fireAudio.Stop();
             }
         }
 
@@ -115,7 +94,7 @@ public class Fire : MonoBehaviour
 
         if (fireLight != null)
             fireLight.intensity = fireLife;
-    }
 
+    }
 
 }

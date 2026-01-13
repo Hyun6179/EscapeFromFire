@@ -33,7 +33,6 @@ public class WaterParticleController : MonoBehaviour
             {
                 if (fireCollider.bounds.Contains(particles[i].position))
                 {
-                    Debug.Log("불 진압중");
                     insideCount++;
                 }
             }

@@ -10,9 +10,6 @@ TagManager:
   - Water
   - ToilWater
   - OtherFire
-  - LivCollider
-  - RedDoor
-  - Hand
   layers:
   - Default
   - TransparentFX

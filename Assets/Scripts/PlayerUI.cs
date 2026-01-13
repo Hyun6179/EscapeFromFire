@@ -13,6 +13,7 @@ public class PlayerUI : MonoBehaviour
     public GameObject FireDead;
     public GameObject NoFire;
 
+    public Transform Player;
     public bool isReadUI;
     
     private void Start()
@@ -21,27 +22,25 @@ public class PlayerUI : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if(other.CompareTag("LivCollider"))
+        if(collision.gameObject == LivCollider)
         {
             Liv.SetActive(true);
-            other.gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
         }
 
-        if(other.CompareTag("RedDoor"))
+        if (collision.gameObject == RedDoor)
         {
             RedDoor.SetActive(true);
         }
     }
 
-
     private void Update()
     {
         if (Liv.activeSelf == true)
         {
-            Rigidbody rb = gameObject.GetComponent<Rigidbody>();
-            rb.constraints = RigidbodyConstraints.FreezeAll;
+            transform.position = Player.position;
             isReadUI = true;
         }
         else

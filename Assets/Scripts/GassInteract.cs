@@ -27,16 +27,9 @@ public class GassInteract : MonoBehaviour
         }
     }
 
-    public float damageInterval = 5.0f;
+    public float damageInterval = 1.0f;
     private float lastDamageTime = 0f;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            lastDamageTime = 0f;
-        }
-    }
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -46,8 +39,13 @@ public class GassInteract : MonoBehaviour
 
             if (playerUI.isReadUI == false)
             {
-                if (playerHP != null)
+                if (Time.time >= lastDamageTime + damageInterval)
+                {
+                    if (playerHP != null)
                         playerHP.GetDamage();
+
+                    lastDamageTime = Time.time;
+                }
             }
         }
     }
